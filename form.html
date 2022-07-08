@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <style>
+        .body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            width: 50%;
+            margin: auto;
+        }
+        
+        .body input[type=text], input[type=password], input[type=email] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+          box-sizing: border-box;
+        }
+        .body input[type=text]:focus, input[type=password]:focus, input[type=email]:focus ,select:focus{
+            border: 2px rgb(7, 41, 77);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            outline: none;
+        }
+        .body label{
+            color: rgb(7, 41, 77);
+            font-weight: 500;
+        }
+     
+         .body div {
+                    padding: 10px 0;
+                 }
+        .body hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+h4{
+    font-size: 28px;
+    color: rgb(7, 41, 77);
+    font-weight: 600;
+    margin-top: 80px;
+    margin-bottom: 0px;
+    display: block;
+    border-bottom: 2px solid rgb(4, 172, 60);
+    width: fit-content;
+
+}
+
+.btn1 {
+  background-color: rgb(7, 41, 77);
+  color: white;
+  font-size: 16px;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 100px;
+}
+.btn1:hover{
+    opacity: 0.8;
+}
+select{
+          color: rgb(7, 41, 77); 
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+          box-sizing: border-box;
+}
+
+/* .container:hover input ~ .checkmark {
+  background-color: #ccc;
+} */
+
+input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+.form {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+        </style>
+</head>
+<?php 
+if(isset($_GET['email'])){
+		if($_GET['email']=="success"){?>
+			<div class="alert alert-success" role="alert">
+  Message has been sent Succesfully!
+</div>
+		<?php  	
+		}
+		else if($_GET['email']=="failed"){?>
+		<div class="alert alert-danger" role="alert">
+          Message has not sent!
+</div>
+<?php }
+	} ?>
+    <body>
+        <div id="id" class="form body">
+            <div style="display: grid; grid-template-columns: 1fr 1fr;">
+                <h4>Registration Form</h4>
+            </div>
+           
+            <br>
+            <br>
+            <form action="form.php" method="POST">
+            <label> Firstname: </label> 
+            <input type="text" name="firstname" size="15" placeholder="First name"/> <br> <br>
+            <label> Lastname: </label> 
+            <input type="text" name="lastname" size="15" placeholder="Last name"/> <br> <br>
+            <label> Program: </label> 
+            <input type="text" name="program" size="25" placeholder="Program"/> <br> <br>
+            
+            
+            <br>
+            <br>
+            <label> 
+            Gender :
+            </label><br>
+            <div style="color: rgb(7, 41, 77); padding: 8px 20px; margin-top: 10px; font-size: 14px;">
+              <input type="radio" name="gender">Male <br>
+              <input type="radio" name="gender">Female <br>
+              <input type="radio" name="gender">Other <br>
+            </div>
+            
+            <br>
+            
+            <label> 
+            Phone :
+            </label>
+            <input type="text" name="phone"  value="+92" size="2"/> 
+            <label> 
+              Email :
+              </label>
+              <input type="email" name="email"/> 
+            <div></div>
+            <button class="btn1">Submit</button>
+    </form>
+        </div>
+
+    </body>
+</html>
